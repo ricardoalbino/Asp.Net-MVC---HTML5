@@ -1,0 +1,28 @@
+﻿@model School_AspMVC.Models.PessoaModel
+
+    <!--Formulario com validação em HTM5-->
+    <!-- Para enviar dados p/ Controller é usado o (name="pessoaModel.nome") que carrega o Model  p/ cada campo -->
+    <h1>Cadastro de Pessoas</h1>
+
+    <br />
+    <form action="/Home/Create/" method="post">
+
+        <div class="form-group">
+            <label for="nome">Nome:</label>
+            <input type="text" class="form-control" required="required" name="pessoaModel.nome" id="nome">
+
+        </div>
+
+        <div class="form-group">
+            <label for="endeeco">Endereço:</label>
+            <input type="text" class="form-control" required="required" name="pessoaModel.endereco">
+        </div>
+
+        <div class="form-group">
+            <label for="email">E-mail:</label>
+            <input type="text" class="form-control" required="required" name="pessoaModel.email" id="email">
+        </div>
+
+
+        <a href="~/Home/Index/" class="btn btn-warning">Voltar</a> <button type="submit" class="btn btn-primary">Salvar</button>
+    </form>

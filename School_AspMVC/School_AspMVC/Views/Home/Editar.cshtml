@@ -1,0 +1,50 @@
+﻿@model School_AspMVC.Models.PessoaModel
+
+@{
+    var vId = 0;
+    var vNome = "";
+    var vEnd = "";
+    var vEmail = "";
+}
+
+@try
+{
+    vId = int.Parse(@ViewBag.GetByID.id.ToString());
+    vNome = @ViewBag.GetByID.nome.ToString();
+    vEnd = @ViewBag.GetByID.endereco.ToString();
+    vEmail = @ViewBag.GetByID.email.ToString();
+
+}
+catch
+{ }
+
+
+
+<h2>Editar</h2>
+
+<form action="/Home/Update/@vId" method="post">
+
+    <div class="form-group">
+        <input type="hidden" class="form-control" name="pessoaModel.id" id="id" value="@vId">
+    </div>
+
+    <div class="form-group">
+        <label for="nome">Nome:</label>
+        <input type="text" class="form-control" name="pessoaModel.nome" id="nome" value="@vNome">
+
+    </div>
+
+    <div class="form-group">
+        <label for="endeeco">Endereço:</label>
+        <input type="text" class="form-control" name="pessoaModel.endereco" value="@vEnd">
+    </div>
+
+    <div class="form-group">
+        <label for="email">E-mail:</label>
+        <input type="text" class="form-control" name="pessoaModel.email" id="email" value="@vEmail">
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Salvar</button>
+</form>
+

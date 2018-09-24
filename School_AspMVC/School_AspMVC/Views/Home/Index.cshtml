@@ -1,0 +1,40 @@
+﻿@model List<School_AspMVC.Models.PessoaModel>
+
+<h1>Lista de Pessoas</h1>
+
+<br/>
+<a href="~/Home/Create/" class="btn btn-warning">Novo</a>
+<br />
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Endereço</th>
+            <th>E-mail</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.GetAll)
+        {
+        <tr>
+            <td>@item.id</td>
+            <td>@item.nome</td>
+            <td>@item.endereco</td>
+            <td>@item.email</td>
+
+            <td>
+                <a href="~/Home/Editar/@item.id" class="btn btn-warning">Editar</a>
+                <a href="~/Home/Deletar/@item.id" onclick="deletar(@item.id)" class="btn btn-warning">Deletar</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    function deletar(id) {
+        window.location.href = "../Home/Deletar" + id;
+    }
+
+</script>
